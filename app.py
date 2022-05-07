@@ -210,12 +210,13 @@ with expander:
 #----------------------------------------------------------------------------------------------------------------------------
 st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
-c1NER, c2NER= st.columns([4,6])
+c1NER, c2NER= columns([4,6])
 
 expander3 = st.expander("NER  :", expanded=False)
-with expander3:
-    #c1NER.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
-    image3 = st.image(linkNER+str(selectedCluster)+".png")
+with c1NER:
+    expander3.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
+with c2NER:
+    image3 = expander3.image(linkNER+str(selectedCluster)+".png")
 #----------------------------------------------------------------------------------------------------------------------------
 
 st.header("")
