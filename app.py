@@ -220,8 +220,12 @@ st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
 expander3 = st.expander('Show more info BER deseases')
 col11 = expander3.columns([2])
+col11.image(linkNER+str(selectedCluster)+".png")
+
 expander4 = st.expander('Show more info BER deseases')
 col12 = expander4.columns([10])
+col12.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
+
 #----------------------------------------------------------------------------------------------------------------------------
 
 st.header("")
