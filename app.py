@@ -216,9 +216,9 @@ c1NER, c2NER= st.columns([4,6])
 #expander3.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
 #expander3.image(linkNER+str(selectedCluster)+".png")
 col1, col2 = st.columns(2)
-col1.write('More info in column layout?')
-expdr = col2.expander('Show more info in column!')
-expdr.write('More info!')
+col1.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
+expander3 = col2.expander('Show more info BER deseases')
+expander3.image(linkNER+str(selectedCluster)+".png")
 #----------------------------------------------------------------------------------------------------------------------------
 
 st.header("")
