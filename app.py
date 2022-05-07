@@ -210,7 +210,7 @@ with expander:
 #----------------------------------------------------------------------------------------------------------------------------
 st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
-c1NER, c2NER= columns([4,6])
+c1NER, c2NER= st.columns([4,6])
 
 expander3 = st.expander("NER  :", expanded=False)
 expander3.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
