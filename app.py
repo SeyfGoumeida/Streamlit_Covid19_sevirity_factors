@@ -129,7 +129,7 @@ elif (option=="Covid19 & Severity & Diabetes"):
 #--------------------------------------------------------------------------------------------------------------------------------
 elif (option=="Covid19 & Severity & Hypertension"):
   df = pd.read_csv("./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/text_cleaned_hypertension_alldf.csv")
-  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity_ Hypertension/top_words_hypertension_cocluster_"
+  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/top_words_hypertension_cocluster_"
   nbClusters = 5
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
