@@ -190,7 +190,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
-------------------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([4,6])
 expander = st.expander("See plot :")
 with expander:
