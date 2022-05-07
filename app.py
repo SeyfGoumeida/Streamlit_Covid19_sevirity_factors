@@ -193,7 +193,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
 #------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([5,5])
 expander1 = c1.expander('Show cluster plot :', expanded=True)
-expander2 = c2.expander('Show cluster words : ', expanded=True)
+expander2 = c2.expander('Show cluster words : ', expanded=False)
 link = linkTopWords+str(selectedCluster)+".csv"
 cluster = pd.read_csv(link)
 cluster = cluster.sort_values(by=['count'],ascending=False)
