@@ -2,7 +2,6 @@ from os import sep
 import streamlit as st
 from datetime import datetime
 import streamlit as st
-from vega_datasets import data
 import pandas as pd
 from PIL import Image
 import matplotlib.pyplot as plt
