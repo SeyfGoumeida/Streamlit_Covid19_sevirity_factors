@@ -61,7 +61,7 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
   
 if (option=="Covid19 & Severity & Asthma"):
-  df = pd.read_csv("github.com/SeyfGoumeida/Streamlit_Covid19_sevirity_factors/tree/main/PPD 202022/Datasets/Covid19 & Severity & Asthma/text_cleaned_asthma_alldf.csv") 
+  df = pd.read_csv("github.com/SeyfGoumeida/Streamlit_Covid19_sevirity_factors/tree/main/PPD%202022/Datasets/Covid19 & Severity & Asthma/text_cleaned_asthma_alldf.csv") 
   df.drop(columns="Unnamed: 0",inplace=True) 
   linkTopWords = "../PPD 2022/Datasets/Covid19 & Severity & Asthma/top_words_asthma_cocluster_"
   nbClusters = 9
