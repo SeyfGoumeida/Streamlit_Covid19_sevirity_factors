@@ -211,9 +211,11 @@ with expander:
 st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
 col1, col2 = st.columns([10,2])
-col2.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
 expander3 = col1.expander('Show more info BER deseases')
 expander3.image(linkNER+str(selectedCluster)+".png")
+expander4 = col2.expander('Show more info BER deseases')
+expander4.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
+
 #----------------------------------------------------------------------------------------------------------------------------
 
 st.header("")
