@@ -217,7 +217,7 @@ list_desease=""
 for i in range(0,len(df_desease)):
 	list_desease=list_desease+" , "+df_desease.values[i]
 
-expander4.write(list_desease)
+expander4.text(list_desease)
 
 #----------------------------------------------------------------------------------------------------------------------------
 
