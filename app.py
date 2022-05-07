@@ -192,19 +192,17 @@ elif (option=="Covid19 & Severity & Pneumonia"):
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/NER_pneumonia_cocluster_"
 #------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([5,5])
-expander = st.expander("See plot :")
-with expander:
-  link = linkTopWords+str(selectedCluster)+".csv"
-  cluster = pd.read_csv(link)
-  cluster = cluster.sort_values(by=['count'],ascending=False)
-  #---------------------------------------------------------
-  fig = plt.figure(figsize=(8, 2))
-  ax = sns.barplot(x="words", y="count", data=cluster.head(20), alpha=0.9)
-  ax.set_xticklabels(ax.get_xticklabels(),rotation = 90)
-  with expander:
-    c1.pyplot(fig)
-  with expander:
-    c2.write(cluster)
+expander1 = c1.expander('Show cluster plot :', expanded=True)
+expander2 = c2.expander('Show deseases table : ', expanded=True)
+link = linkTopWords+str(selectedCluster)+".csv"
+cluster = pd.read_csv(link)
+cluster = cluster.sort_values(by=['count'],ascending=False)
+#---------------------------------------------------------
+fig = plt.figure(figsize=(8, 2))
+ax = sns.barplot(x="words", y="count", data=cluster.head(20), alpha=0.9)
+ax.set_xticklabels(ax.get_xticklabels(),rotation = 90)
+expander1.pyplot(fig)
+expander2.write(cluster)
 #----------------------------------------------------------------------------------------------------------------------------
 
 #----------------------------------------------------------------------------------------------------------------------------
