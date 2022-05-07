@@ -212,9 +212,13 @@ st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
 c1NER, c2NER= st.columns([4,6])
 
-expander3 = st.expander("NER  :", expanded=False)
-expander3.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
-expander3.image(linkNER+str(selectedCluster)+".png")
+#expander3 = st.expander("NER  :", expanded=False)
+#expander3.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
+#expander3.image(linkNER+str(selectedCluster)+".png")
+col1, col2 = st.beta_columns(2)
+col1.write('More info in column layout?')
+expdr = col2.beta_expander('Show more info in column!')
+expdr.write('More info!')
 #----------------------------------------------------------------------------------------------------------------------------
 
 st.header("")
