@@ -6,6 +6,7 @@ import pandas as pd
 from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pathlib import Path
 
 #--------------------------------------------------------------------------------
 st.set_page_config(layout="wide", page_icon="microbe", page_title="Covid19 Severity app")
@@ -60,7 +61,7 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
   
 if (option=="Covid19 & Severity & Asthma"):
-  df = pd.read_csv("text_cleaned_asthma_alldf.csv") 
+  df = pd.read_csv(Path(__file__).parents[1] / "PPD 2022/Datasets/Covid19 & Severity & Asthma/text_cleaned_asthma_alldf.csv") 
   df.drop(columns="Unnamed: 0",inplace=True) 
   linkTopWords = "../PPD 2022/Datasets/Covid19 & Severity & Asthma/top_words_asthma_cocluster_"
   nbClusters = 9
