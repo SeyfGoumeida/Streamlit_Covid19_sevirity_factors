@@ -106,7 +106,7 @@ elif (option=="Covid19 & Severity & Cancer"):
 #-------------------------------------------------------------------------------------------------------------------------------- 
 elif (option=="Covid19 & Severity & Diabetes"):
   df = pd.read_csv("./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/text_cleaned_diabetes_alldf.csv")
-  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/top_words_diabetes_cocluster_"
+  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/NER_diabetes_cocluster_"
   nbClusters = 5  
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
@@ -129,7 +129,7 @@ elif (option=="Covid19 & Severity & Diabetes"):
 #--------------------------------------------------------------------------------------------------------------------------------
 elif (option=="Covid19 & Severity & Hypertension"):
   df = pd.read_csv("./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/text_cleaned_hypertension_alldf.csv")
-  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/top_words_hypertension_cocluster_"
+  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/NER_hypertension_cocluster_"
   nbClusters = 5
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
@@ -152,7 +152,7 @@ elif (option=="Covid19 & Severity & Hypertension"):
 #--------------------------------------------------------------------------------------------------------------------------------  
 elif (option=="Covid19 & Severity & Obesity"):
   df = pd.read_csv("./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/text_cleaned_obesity_alldf.csv")  
-  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/top_words_obesity_cocluster_"
+  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/NER_obesity_cocluster_"
   nbClusters = 4
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
@@ -175,7 +175,7 @@ elif (option=="Covid19 & Severity & Obesity"):
 #-------------------------------------------------------------------------------------------------------------------------------- 
 elif (option=="Covid19 & Severity & Pneumonia"):
   df = pd.read_csv("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/text_cleaned_pneumonia_alldf.csv")
-  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/top_words_pneumonia_cocluster_"
+  linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/NER_pneumonia_cocluster_"
   nbClusters = 5  
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
@@ -189,7 +189,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia_"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/NER_pneumonia_cocluster_"
 #------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([4,6])
 expander = st.expander("See plot :")
