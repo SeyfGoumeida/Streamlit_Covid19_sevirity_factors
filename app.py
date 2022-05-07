@@ -75,7 +75,7 @@ if (option=="Covid19 & Severity & Asthma"):
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5','6','7','8','9'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma_"
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
@@ -97,7 +97,7 @@ elif (option=="Covid19 & Severity & Cancer"):
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -120,7 +120,7 @@ elif (option=="Covid19 & Severity & Diabetes"):
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png"
-  linkNER =  "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png"
+  linkNER =  "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -143,7 +143,7 @@ elif (option=="Covid19 & Severity & Hypertension"):
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -166,7 +166,7 @@ elif (option=="Covid19 & Severity & Obesity"):
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -189,7 +189,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia_"
 #------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([4,6])
 expander = st.expander("See plot :")
@@ -206,18 +206,24 @@ with expander:
   with expander:
     c2.pyplot(fig)
 #----------------------------------------------------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------------------------------------------------
+st.header("")
+st.markdown("## 📌 NER Named Entity Recognition : ")
+c1NER, c2NER= st.columns([4,6])
+
+expander3 = st.expander("Similarities  :", expanded=False)
+with expander3:
+    c1NER.write(linkNER+str(selectedCluster)+".csv")
+with expander3:
+    image3 = c2NER.image(linkNER+str(selectedCluster)+".png")
+#----------------------------------------------------------------------------------------------------------------------------
+
 st.header("")
 st.markdown("## 🧬 Similarities : ")
 expander2 = st.expander("Similarities  :", expanded=False)
 with expander2:
   image2 = st.image(linkSimilarity)
-#----------------------------------------------------------------------------------------------------------------------------
-st.header("")
-st.markdown("## 📌 NER Named Entity Recognition : ")
-expander3 = st.expander("Similarities  :", expanded=False)
-with expander3:
-  image3 = st.image(linkNER)
-
 #----------------------------------------------------------------------------------------------------------------------------
 st.markdown("## 📥 Download Datasets and results :")
 def convert_df(df):
