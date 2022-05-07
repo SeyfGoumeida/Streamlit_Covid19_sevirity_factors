@@ -210,7 +210,7 @@ st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
 col1, col2 = st.columns([5,5])
 expander3 = col1.expander('Show deseases plot :', expanded=True)
-expander3.image(linkNER+str(selectedCluster)+".png",width =10)
+expander3.image(linkNER+str(selectedCluster)+".png",width =1000)
 expander4 = col2.expander('Show deseases table : ')
 expander4.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
 
