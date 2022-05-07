@@ -214,7 +214,7 @@ c1NER, c2NER= columns([4,6])
 
 expander3 = st.expander("NER  :", expanded=False)
 expander3.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
-image3 = expander3.image(linkNER+str(selectedCluster)+".png")
+expander3.image(linkNER+str(selectedCluster)+".png")
 #----------------------------------------------------------------------------------------------------------------------------
 
 st.header("")
