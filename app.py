@@ -216,6 +216,12 @@ expander3.image(linkNER+str(selectedCluster)+".png")
 expander4 = col2.expander('Show more info BER deseases')
 expander4.write(pd.read_csv(linkNER+str(selectedCluster)+".csv"))
 
+st.header("")
+st.markdown("## 📌 NER Named Entity Recognition : ")
+expander3 = st.expander('Show more info BER deseases')
+col11 = expander3.columns([2])
+expander4 = st.expander('Show more info BER deseases')
+col12 = expander4.columns([10])
 #----------------------------------------------------------------------------------------------------------------------------
 
 st.header("")
