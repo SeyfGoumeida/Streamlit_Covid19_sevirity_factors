@@ -61,7 +61,9 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
   
 if (option=="Covid19 & Severity & Asthma"):
-  df = pd.read_csv("PPD 2022/Datasets/Covid19 & Severity & Asthma/text_cleaned_asthma_alldf.csv", on_bad_lines='skip') 
+  
+  #df = pd.read_csv("PPD 2022/Datasets/Covid19 & Severity & Asthma/text_cleaned_asthma_alldf.csv", on_bad_lines='skip') 
+  df = pd.read_csv(os.path.dirname(__file__)+"PPD 2022/Datasets/Covid19 & Severity & Asthma/text_cleaned_asthma_alldf.csv") 
   df.drop(columns="Unnamed: 0",inplace=True) 
   linkTopWords = "../PPD 2022/Datasets/Covid19 & Severity & Asthma/top_words_asthma_cocluster_"
   nbClusters = 9
