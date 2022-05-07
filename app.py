@@ -4,6 +4,7 @@ from datetime import datetime
 import streamlit as st
 import pandas as pd
 from PIL import Image
+import matplotlib.pyplot as plt
 import seaborn as sns
 
 #--------------------------------------------------------------------------------
@@ -59,9 +60,9 @@ space(1)
 #--------------------------------------------------------------------------------------------------------------------------------
   
 if (option=="Covid19 & Severity & Asthma"):
-  df = pd.read_csv("PPD 2022/Datasets/Covid19 & Severity & Asthma/text_cleaned_asthma_alldf.csv") 
+  df = pd.read_csv("../PPD 2022/Datasets/Covid19 & Severity & Asthma/text_cleaned_asthma_alldf.csv") 
   df.drop(columns="Unnamed: 0",inplace=True) 
-  linkTopWords = "PPD 2022/Datasets/Covid19 & Severity & Asthma/top_words_asthma_cocluster_"
+  linkTopWords = "../PPD 2022/Datasets/Covid19 & Severity & Asthma/top_words_asthma_cocluster_"
   nbClusters = 9
   expander = st.expander("See all articles :", expanded=True)
   with expander:
@@ -71,18 +72,18 @@ if (option=="Covid19 & Severity & Asthma"):
   st.markdown("## 📊 Clusters : ")
   expander = st.expander("Clusters size :", expanded=False)
   with expander:
-    image = st.image("PPD 2022/Datasets/Covid19 & Severity & Asthma/clusters_size_asthma.png")
+    image = st.image("../PPD 2022/Datasets/Covid19 & Severity & Asthma/clusters_size_asthma.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5','6','7','8','9'))
-  linkSimilarity = "PPD 2022/Datasets/Covid19 & Severity & Asthma/clusters_size_asthma.png"
-  linkNER = "PPD 2022/Datasets/Covid19 & Severity & Asthma/clusters_size_asthma.png"
+  linkSimilarity = "../PPD 2022/Datasets/Covid19 & Severity & Asthma/clusters_size_asthma.png"
+  linkNER = "../PPD 2022/Datasets/Covid19 & Severity & Asthma/clusters_size_asthma.png"
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------  
 elif (option=="Covid19 & Severity & Cancer"):
-  df = pd.read_csv("PPD 2022/Datasets/Covid19 & Severity & Cancer/text_cleaned_cancer_alldf.csv")  
-  linkTopWords = "PPD 2022/Datasets/Covid19 & Severity & Cancer/top_words_cancer_cocluster_"
+  df = pd.read_csv("../PPD 2022/Datasets/Covid19 & Severity & Cancer/text_cleaned_cancer_alldf.csv")  
+  linkTopWords = "../PPD 2022/Datasets/Covid19 & Severity & Cancer/top_words_cancer_cocluster_"
   nbClusters = 3
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
@@ -93,10 +94,10 @@ elif (option=="Covid19 & Severity & Cancer"):
   st.markdown("## 📊 Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("PPD 2022/Datasets/Covid19 & Severity & Cancer/clusters_size_cancer.png")
+    image = st.image("../PPD 2022/Datasets/Covid19 & Severity & Cancer/clusters_size_cancer.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3'))
-  linkSimilarity = "PPD 2022/Datasets/Covid19 & Severity & Cancer/clusters_size_cancer.png"
-  linkNER = "PPD 2022/Datasets/Covid19 & Severity & Cancer/clusters_size_cancer.png"
+  linkSimilarity = "../PPD 2022/Datasets/Covid19 & Severity & Cancer/clusters_size_cancer.png"
+  linkNER = "../PPD 2022/Datasets/Covid19 & Severity & Cancer/clusters_size_cancer.png"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -104,8 +105,8 @@ elif (option=="Covid19 & Severity & Cancer"):
 #--------------------------------------------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------------------------------------------- 
 elif (option=="Covid19 & Severity & Diabetes"):
-  df = pd.read_csv("PPD 2022/Datasets/Covid19 & Severity & Diabetes/text_cleaned_diabetes_alldf.csv")
-  linkTopWords = "PPD 2022/Datasets/Covid19 & Severity & Diabetes/top_words_diabetes_cocluster_"
+  df = pd.read_csv("../PPD 2022/Datasets/Covid19 & Severity & Diabetes/text_cleaned_diabetes_alldf.csv")
+  linkTopWords = "../PPD 2022/Datasets/Covid19 & Severity & Diabetes/top_words_diabetes_cocluster_"
   nbClusters = 5  
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
@@ -116,10 +117,10 @@ elif (option=="Covid19 & Severity & Diabetes"):
   st.markdown("## 📊 Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("PPD 2022/Datasets/Covid19 & Severity & Diabetes/clusters_size_diabetes.png")
+    image = st.image("../PPD 2022/Datasets/Covid19 & Severity & Diabetes/clusters_size_diabetes.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
-  linkSimilarity = "PPD 2022/Datasets/Covid19 & Severity & Diabetes/clusters_size_diabetes.png"
-  linkNER =  "PPD 2022/Datasets/Covid19 & Severity & Diabetes/clusters_size_diabetes.png"
+  linkSimilarity = "../PPD 2022/Datasets/Covid19 & Severity & Diabetes/clusters_size_diabetes.png"
+  linkNER =  "../PPD 2022/Datasets/Covid19 & Severity & Diabetes/clusters_size_diabetes.png"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -127,8 +128,8 @@ elif (option=="Covid19 & Severity & Diabetes"):
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 elif (option=="Covid19 & Severity & Hypertension"):
-  df = pd.read_csv("PPD 2022/Datasets/Covid19 & Severity & Hypertension/text_cleaned_hypertension_alldf.csv")
-  linkTopWords = "PPD 2022/Datasets/Covid19 & Severity & Hypertension/top_words_hypertension_cocluster_"
+  df = pd.read_csv("../PPD 2022/Datasets/Covid19 & Severity & Hypertension/text_cleaned_hypertension_alldf.csv")
+  linkTopWords = "../PPD 2022/Datasets/Covid19 & Severity & Hypertension/top_words_hypertension_cocluster_"
   nbClusters = 5
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
@@ -139,10 +140,10 @@ elif (option=="Covid19 & Severity & Hypertension"):
   st.markdown("## 📊 Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("PPD 2022/Datasets/Covid19 & Severity & Hypertension/clusters_size_hypertension.png")
+    image = st.image("../PPD 2022/Datasets/Covid19 & Severity & Hypertension/clusters_size_hypertension.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
-  linkSimilarity = "PPD 2022/Datasets/Covid19 & Severity & Hypertension/clusters_size_hypertension.png"
-  linkNER = "PPD 2022/Datasets/Covid19 & Severity & Hypertension/clusters_size_hypertension.png"
+  linkSimilarity = "../PPD 2022/Datasets/Covid19 & Severity & Hypertension/clusters_size_hypertension.png"
+  linkNER = "../PPD 2022/Datasets/Covid19 & Severity & Hypertension/clusters_size_hypertension.png"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -150,8 +151,8 @@ elif (option=="Covid19 & Severity & Hypertension"):
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------  
 elif (option=="Covid19 & Severity & Obesity"):
-  df = pd.read_csv("PPD 2022/Datasets/Covid19 & Severity & Obesity/text_cleaned_obesity_alldf.csv")  
-  linkTopWords = "PPD 2022/Datasets/Covid19 & Severity & Obesity/top_words_obesity_cocluster_"
+  df = pd.read_csv("../PPD 2022/Datasets/Covid19 & Severity & Obesity/text_cleaned_obesity_alldf.csv")  
+  linkTopWords = "../PPD 2022/Datasets/Covid19 & Severity & Obesity/top_words_obesity_cocluster_"
   nbClusters = 4
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
@@ -162,10 +163,10 @@ elif (option=="Covid19 & Severity & Obesity"):
   st.markdown("## 📊 Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("PPD 2022/Datasets/Covid19 & Severity & Obesity/clusters_size_obesity.png")
+    image = st.image("../PPD 2022/Datasets/Covid19 & Severity & Obesity/clusters_size_obesity.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4'))
-  linkSimilarity = "PPD 2022/Datasets/Covid19 & Severity & Obesity/clusters_size_obesity.png"
-  linkNER = "PPD 2022/Datasets/Covid19 & Severity & Obesity/clusters_size_obesity.png"
+  linkSimilarity = "../PPD 2022/Datasets/Covid19 & Severity & Obesity/clusters_size_obesity.png"
+  linkNER = "../PPD 2022/Datasets/Covid19 & Severity & Obesity/clusters_size_obesity.png"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -173,8 +174,8 @@ elif (option=="Covid19 & Severity & Obesity"):
 #--------------------------------------------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------------------------------------------- 
 elif (option=="Covid19 & Severity & Pneumonia"):
-  df = pd.read_csv("PPD 2022/Datasets/Covid19 & Severity & Pneumonia/text_cleaned_pneumonia_alldf.csv")
-  linkTopWords = "PPD 2022/Datasets/Covid19 & Severity & Pneumonia/top_words_pneumonia_cocluster_"
+  df = pd.read_csv("../PPD 2022/Datasets/Covid19 & Severity & Pneumonia/text_cleaned_pneumonia_alldf.csv")
+  linkTopWords = "../PPD 2022/Datasets/Covid19 & Severity & Pneumonia/top_words_pneumonia_cocluster_"
   nbClusters = 5  
   df.drop(columns="Unnamed: 0",inplace=True)
   expander = st.expander("See all articles :", expanded=True)
@@ -185,10 +186,10 @@ elif (option=="Covid19 & Severity & Pneumonia"):
   st.markdown("## 📊 Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("PPD 2022/Datasets/Covid19 & Severity & Pneumonia/clusters_size_pneumonia.png")
+    image = st.image("../PPD 2022/Datasets/Covid19 & Severity & Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
-  linkSimilarity = "PPD 2022/Datasets/Covid19 & Severity & Pneumonia/clusters_size_pneumonia.png"
-  linkNER = "PPD 2022/Datasets/Covid19 & Severity & Pneumonia/clusters_size_pneumonia.png"
+  linkSimilarity = "../PPD 2022/Datasets/Covid19 & Severity & Pneumonia/clusters_size_pneumonia.png"
+  linkNER = "../PPD 2022/Datasets/Covid19 & Severity & Pneumonia/clusters_size_pneumonia.png"
 #----------------------------------------------------------------------------------------------------------------------------
 st.markdown("")
 st.sidebar.write('You selected   :', option)
