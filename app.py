@@ -191,7 +191,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/NER_pneumonia_cocluster_"
 #------------------------------------------------------------------------------------------------------------------------
-c1, c2= st.columns([4,6])
+c1, c2= st.columns([5,5])
 expander = st.expander("See plot :")
 with expander:
   link = linkTopWords+str(selectedCluster)+".csv"
@@ -202,15 +202,15 @@ with expander:
   ax = sns.barplot(x="words", y="count", data=cluster.head(20), alpha=0.9)
   ax.set_xticklabels(ax.get_xticklabels(),rotation = 90)
   with expander:
-    c1.write(cluster)
+    c1.pyplot(fig)
   with expander:
-    c2.pyplot(fig)
+    c2.write(cluster)
 #----------------------------------------------------------------------------------------------------------------------------
 
 #----------------------------------------------------------------------------------------------------------------------------
 st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
-col1, col2 = st.columns([10,2])
+col1, col2 = st.columns([5,5])
 expander3 = col1.expander('Show deseases plot :', expanded=True)
 expander3.image(linkNER+str(selectedCluster)+".png")
 expander4 = col2.expander('Show deseases table : ')
