@@ -123,7 +123,7 @@ if (option=="Covid19 & Severity & Asthma"):
     c1, c2,c3= st.columns([2,6,2])
     image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5','6','7','8','9'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/graph_sim_asthma_cluster_.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/NER_asthma_cocluster_"
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -157,7 +157,7 @@ elif (option=="Covid19 & Severity & Cancer"):
     c1, c2,c3= st.columns([2,6,2])
     image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/graph_sim_cancer_cluster_.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/NER_cancer_cocluster_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -191,7 +191,7 @@ elif (option=="Covid19 & Severity & Diabetes"):
     c1, c2,c3= st.columns([2,6,2])
     image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/graph_sim_diabetes_cluster_.png"
   linkNER =  "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/NER_diabetes_cocluster_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -223,9 +223,9 @@ elif (option=="Covid19 & Severity & Hypertension"):
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
     c1, c2,c3= st.columns([2,6,2])
-    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/graph_sim_hypertension_cluster_.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/NER_hypertension_cocluster_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -257,9 +257,9 @@ elif (option=="Covid19 & Severity & Obesity"):
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
     c1, c2,c3= st.columns([2,6,2])
-    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/graph_sim_obesity_cluster_.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/NER_obesity_cocluster_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -293,7 +293,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
     c1, c2,c3= st.columns([2,6,2])
     image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/graph_sim_pneumonia_cluster_.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/NER_pneumonia_cocluster_"
 #------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([9,3])
