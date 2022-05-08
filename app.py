@@ -335,7 +335,7 @@ def convert_df(df):
      return df.to_csv(sep=";").encode('utf-8')
 dfcsv = convert_df(df)
 clusterdf = convert_df(cluster)
-c1, c2= st.columns([6, 6])
+c1, c2,c3= st.columns(3)
 with c1:
   st.header("Dataset :")
   result = st.download_button(
@@ -350,5 +350,13 @@ with c2:
       label="📥 Download(.csv)",
       data=clusterdf,
       file_name=option+selectedCluster+'_df.csv',
+      mime='text_/csv',
+  )
+with c3:
+  st.header("Deseases :")
+  dataset = st.download_button(
+      label="📥 Download( .csv)",
+      data=df_desease,
+      file_name=option+"_deseases_"+selectedCluster+'_df.csv',
       mime='text_/csv',
   )
