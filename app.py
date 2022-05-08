@@ -297,7 +297,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/NER_pneumonia_cocluster_"
 #------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([9,3])
-expander1 = c1.expander('Show cluster plot :', expanded=False)
+expander1 = c1.expander('Most frequente works :', expanded=False)
 expander2 = c2.expander('Show cluster words : ', expanded=False)
 link = linkTopWords+str(selectedCluster)+".csv"
 cluster = pd.read_csv(link)
