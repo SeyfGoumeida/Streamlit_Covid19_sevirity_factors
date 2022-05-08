@@ -297,7 +297,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/NER_pneumonia_cocluster_"
 #------------------------------------------------------------------------------------------------------------------------
 c1, c2= st.columns([8,2])
-expander1 = c1.expander('Show cluster plot :', expanded=True)
+expander1 = c1.expander('Show cluster plot :', expanded=False)
 expander2 = c2.expander('Show cluster words : ', expanded=False)
 link = linkTopWords+str(selectedCluster)+".csv"
 cluster = pd.read_csv(link)
@@ -314,7 +314,7 @@ expander2.write(cluster)
 st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
 col1, col2 = st.columns([8,2])
-expander3 = col1.expander('Show deseases plot :', expanded=True)
+expander3 = col1.expander('Show deseases plot :', expanded=False)
 expander3.image(linkNER+str(selectedCluster)+".png",use_column_width ="always")
 expander4 = col2.expander('Show deseases table : ')
 df_desease = pd.read_csv(linkNER+str(selectedCluster)+".csv")
