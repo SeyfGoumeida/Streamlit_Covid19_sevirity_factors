@@ -356,7 +356,7 @@ with c3:
   st.header("Deseases :")
   dataset = st.download_button(
       label="📥 Download( .csv)",
-      data=df_desease,
+      data=convert_df(df_desease),
       file_name=option+"_deseases_"+selectedCluster+'_df.csv',
       mime='text_/csv',
   )
