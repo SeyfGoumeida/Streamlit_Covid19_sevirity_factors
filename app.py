@@ -120,7 +120,8 @@ if (option=="Covid19 & Severity & Asthma"):
   st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Clusters size :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5','6','7','8','9'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/NER_asthma_cocluster_"
@@ -153,7 +154,8 @@ elif (option=="Covid19 & Severity & Cancer"):
   st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/NER_cancer_cocluster_"
@@ -186,7 +188,8 @@ elif (option=="Covid19 & Severity & Diabetes"):
   st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png"
   linkNER =  "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/NER_diabetes_cocluster_"
@@ -219,7 +222,8 @@ elif (option=="Covid19 & Severity & Hypertension"):
   st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/NER_hypertension_cocluster_"
@@ -252,7 +256,8 @@ elif (option=="Covid19 & Severity & Obesity"):
   st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/NER_obesity_cocluster_"
