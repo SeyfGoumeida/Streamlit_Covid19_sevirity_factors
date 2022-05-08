@@ -104,12 +104,12 @@ if (option=="Covid19 & Severity & Asthma"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/top_words_asthma_cocluster_"
   nbClusters = 9
   expander = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
-    with expander:
-      col1, col2, col3 = st.columns(3)
-      #st.dataframe(df.head(nb))
-      col1.metric(label="NUMBER OF ARTICLES", value=len(df))
-      col2.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
-      col3.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
+  with expander:
+     col1, col2, col3 = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
     #--------------------------------------------------------------------------------------------------------------------------------
   expander = st.expander("See all articles :", expanded=True)
   with expander:
