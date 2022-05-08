@@ -315,7 +315,7 @@ st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
 col1, col2 = st.columns([6,2])
 expander3 = col1.expander('Show deseases plot :', expanded=False)
-expander3.image(linkNER+str(selectedCluster)+".png",use_column_width ="always")
+expander3.image(linkNER+str(selectedCluster)+".png",use_column_width ="always",caption='Word cloud of desease names found in the co-cluster')
 expander4 = col2.expander('Show deseases table : ')
 df_desease = pd.read_csv(linkNER+str(selectedCluster)+".csv")
 expander4.write(df_desease)
@@ -327,7 +327,7 @@ st.markdown("## 🧬 Similarities : ")
 expander2 = st.expander("Similarities  :", expanded=False)
 with expander2:
   col1, col2 ,col3= st.columns([2,6,2])	
-  image2 = col2.image(linkSimilarity+str(selectedCluster)+".png")
+  image2 = col2.image(linkSimilarity+str(selectedCluster)+".png",caption='Similarity graph of top frequent terms (Red color = Desease name)')
 #----------------------------------------------------------------------------------------------------------------------------
 st.markdown("## 📥 Download Datasets and results :")
 def convert_df(df):
