@@ -313,10 +313,9 @@ expander2.write(cluster)
 #----------------------------------------------------------------------------------------------------------------------------
 st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
-expander3 = st.expander('Show deseases plot :', expanded=True)
-with expander3:
-	col3,col1,col4, col2 = st.columns([2,6,2,2])
-	col1.image(linkNER+str(selectedCluster)+".png",use_column_width ="always")
+col1, col2 = st.columns([8,2])
+expander3 = col1.expander('Show deseases plot :', expanded=True)
+expander3.image(linkNER+str(selectedCluster)+".png",use_column_width ="always")
 expander4 = col2.expander('Show deseases table : ')
 df_desease = pd.read_csv(linkNER+str(selectedCluster)+".csv")
 expander4.write(df_desease)
