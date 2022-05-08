@@ -6,6 +6,42 @@ import pandas as pd
 from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
+from streamlit.components.v1 import html
+import json
+import base64
+import textwrap
+import streamlit.components.v1 as components
+
+def render_svg(svg):
+    """Renders the given svg string."""
+    b64 = base64.b64encode(svg.encode('utf-8')).decode("utf-8")
+    html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
+    st.write(html, unsafe_allow_html=True)
+
+
+def render_svg_example():
+    svg = """
+
+    """
+    st.write('## Rendering an SVG in Streamlit')
+
+    st.write('### SVG Input')
+    st.code(textwrap.dedent(svg), 'svg')
+
+    st.write('### SVG Output')
+    render_svg(svg)
+
+
+def save_pet(filename,pet):
+    with open(filename, 'w') as f:
+        f.write(json.dumps(pet))
+        
+#---------------------------------
+
+def load_pet(filename):
+    with open(filename) as f:
+        pet = json.loads(f.read())
+    return pet
 
 #--------------------------------------------------------------------------------
 st.set_page_config(layout="wide", page_icon="microbe", page_title="Covid19 Severity app")
@@ -62,11 +98,23 @@ space(1)
 if (option=="Covid19 & Severity & Asthma"):
   df = pd.read_csv("./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/text_cleaned_asthma_alldf.csv") 
   df.drop(columns="Unnamed: 0",inplace=True) 
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/top_words_asthma_cocluster_"
   nbClusters = 9
+  expander = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+    with expander:
+      col1, col2, col3 = st.columns(3)
+      #st.dataframe(df.head(nb))
+      col1.metric(label="NUMBER OF ARTICLES", value=len(df))
+      col2.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+      col3.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
+    #--------------------------------------------------------------------------------------------------------------------------------
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
+
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
   st.markdown("## 📊 Clusters : ")
