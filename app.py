@@ -117,7 +117,7 @@ if (option=="Covid19 & Severity & Asthma"):
 
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Clusters size :", expanded=False)
   with expander:
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png")
@@ -150,7 +150,7 @@ elif (option=="Covid19 & Severity & Cancer"):
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png")
@@ -183,7 +183,7 @@ elif (option=="Covid19 & Severity & Diabetes"):
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png")
@@ -216,7 +216,7 @@ elif (option=="Covid19 & Severity & Hypertension"):
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png")
@@ -249,7 +249,7 @@ elif (option=="Covid19 & Severity & Obesity"):
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png")
@@ -282,7 +282,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
     image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
