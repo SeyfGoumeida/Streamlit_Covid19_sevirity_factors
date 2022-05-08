@@ -6,6 +6,42 @@ import pandas as pd
 from PIL import Image
 import matplotlib.pyplot as plt
 import seaborn as sns
+from streamlit.components.v1 import html
+import json
+import base64
+import textwrap
+import streamlit.components.v1 as components
+
+def render_svg(svg):
+    """Renders the given svg string."""
+    b64 = base64.b64encode(svg.encode('utf-8')).decode("utf-8")
+    html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
+    st.write(html, unsafe_allow_html=True)
+
+
+def render_svg_example():
+    svg = """
+
+    """
+    st.write('## Rendering an SVG in Streamlit')
+
+    st.write('### SVG Input')
+    st.code(textwrap.dedent(svg), 'svg')
+
+    st.write('### SVG Output')
+    render_svg(svg)
+
+
+def save_pet(filename,pet):
+    with open(filename, 'w') as f:
+        f.write(json.dumps(pet))
+        
+#---------------------------------
+
+def load_pet(filename):
+    with open(filename) as f:
+        pet = json.loads(f.read())
+    return pet
 
 #--------------------------------------------------------------------------------
 st.set_page_config(layout="wide", page_icon="microbe", page_title="Covid19 Severity app")
@@ -62,20 +98,33 @@ space(1)
 if (option=="Covid19 & Severity & Asthma"):
   df = pd.read_csv("./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/text_cleaned_asthma_alldf.csv") 
   df.drop(columns="Unnamed: 0",inplace=True) 
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/top_words_asthma_cocluster_"
   nbClusters = 9
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
+    #--------------------------------------------------------------------------------------------------------------------------------
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
+
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Clusters size :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5','6','7','8','9'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/clusters_size_asthma.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/graph_sim_asthma_cluster_"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Asthma/NER_asthma_cocluster_"
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------"Covid19 & Severity & Cancer"-----------------------------------------------------------
@@ -86,18 +135,30 @@ elif (option=="Covid19 & Severity & Cancer"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/top_words_cancer_cocluster_"
   nbClusters = 3
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
+
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/clusters_size_cancer.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/graph_sim_cancer_cluster_"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/NER_cancer_cocluster_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -109,18 +170,29 @@ elif (option=="Covid19 & Severity & Diabetes"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/top_words_diabetes_cocluster_"
   nbClusters = 5  
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png"
-  linkNER =  "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/clusters_size_diabetes.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/graph_sim_diabetes_cluster_"
+  linkNER =  "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/NER_diabetes_cocluster_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -132,18 +204,29 @@ elif (option=="Covid19 & Severity & Hypertension"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/top_words_hypertension_cocluster_"
   nbClusters = 5
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/clusters_size_hypertension.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/graph_sim_hypertension_cluster_"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/NER_hypertension_cocluster_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -155,18 +238,29 @@ elif (option=="Covid19 & Severity & Obesity"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/top_words_obesity_cocluster_"
   nbClusters = 4
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/clusters_size_obesity.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/graph_sim_obesity_cluster_"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/NER_obesity_cocluster_"
 
 #--------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------------------------------------
@@ -178,46 +272,62 @@ elif (option=="Covid19 & Severity & Pneumonia"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/top_words_pneumonia_cocluster_"
   nbClusters = 5  
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
   st.header("")
-  st.markdown("## 📊 Clusters : ")
+  st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
-  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
-  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
+  linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/graph_sim_pneumonia_cluster_"
+  linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/NER_pneumonia_cocluster_"
 #------------------------------------------------------------------------------------------------------------------------
-c1, c2= st.columns([4,6])
-expander = st.expander("See plot :")
-with expander:
-  link = linkTopWords+str(selectedCluster)+".csv"
-  cluster = pd.read_csv(link)
-  cluster = cluster.sort_values(by=['count'],ascending=False)
-  #---------------------------------------------------------
-  fig = plt.figure(figsize=(8, 2))
-  ax = sns.barplot(x="words", y="count", data=cluster.head(20), alpha=0.9)
-  ax.set_xticklabels(ax.get_xticklabels(),rotation = 90)
-  with expander:
-    c1.write(cluster)
-  with expander:
-    c2.pyplot(fig)
+c1, c2= st.columns([9,3])
+expander1 = c1.expander('Most frequente works :', expanded=False)
+expander2 = c2.expander('Show cluster words : ', expanded=False)
+link = linkTopWords+str(selectedCluster)+".csv"
+cluster = pd.read_csv(link)
+cluster = cluster.sort_values(by=['count'],ascending=False)
+#---------------------------------------------------------
+fig = plt.figure(figsize=(8, 2))
+ax = sns.barplot(x="words", y="count", data=cluster.head(20), alpha=0.9)
+ax.set_xticklabels(ax.get_xticklabels(),rotation = 90)
+expander1.pyplot(fig)
+expander2.write(cluster)
 #----------------------------------------------------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------------------------------------------------
+st.header("")
+st.markdown("## 📌 NER Named Entity Recognition : ")
+col1, col2 = st.columns([6,2])
+expander3 = col1.expander('Show deseases plot :', expanded=False)
+expander3.image(linkNER+str(selectedCluster)+".png",use_column_width ="always")
+expander4 = col2.expander('Show deseases table : ')
+df_desease = pd.read_csv(linkNER+str(selectedCluster)+".csv")
+expander4.write(df_desease)
+
+#----------------------------------------------------------------------------------------------------------------------------
+
 st.header("")
 st.markdown("## 🧬 Similarities : ")
 expander2 = st.expander("Similarities  :", expanded=False)
 with expander2:
-  image2 = st.image(linkSimilarity)
-#----------------------------------------------------------------------------------------------------------------------------
-st.header("")
-st.markdown("## 📌 NER Named Entity Recognition : ")
-expander3 = st.expander("Similarities  :", expanded=False)
-with expander3:
-  image3 = st.image(linkNER)
-
+  col1, col2 ,col3= st.columns([2,6,2])	
+  image2 = col2.image(linkSimilarity+str(selectedCluster)+".png")
 #----------------------------------------------------------------------------------------------------------------------------
 st.markdown("## 📥 Download Datasets and results :")
 def convert_df(df):
