@@ -285,7 +285,8 @@ elif (option=="Covid19 & Severity & Pneumonia"):
   st.markdown("## 📊 Co-Clusters : ")
   expander = st.expander("Cluster sizes :", expanded=False)
   with expander:
-    image = st.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
+    c1, c2,c3= st.columns([2,6,2])
+    image = c2.image("./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png")
   selectedCluster = st.selectbox('Select the cluster number  :',('1', '2', '3','4','5'))
   linkSimilarity = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/clusters_size_pneumonia.png"
   linkNER = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/NER_pneumonia_cocluster_"
