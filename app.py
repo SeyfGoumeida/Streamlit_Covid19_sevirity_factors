@@ -134,6 +134,17 @@ elif (option=="Covid19 & Severity & Cancer"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Cancer/top_words_cancer_cocluster_"
   nbClusters = 3
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
+
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
@@ -157,6 +168,16 @@ elif (option=="Covid19 & Severity & Diabetes"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Diabetes/top_words_diabetes_cocluster_"
   nbClusters = 5  
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
@@ -180,6 +201,16 @@ elif (option=="Covid19 & Severity & Hypertension"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Hypertension/top_words_hypertension_cocluster_"
   nbClusters = 5
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
@@ -203,6 +234,16 @@ elif (option=="Covid19 & Severity & Obesity"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Obesity/top_words_obesity_cocluster_"
   nbClusters = 4
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
@@ -226,6 +267,16 @@ elif (option=="Covid19 & Severity & Pneumonia"):
   linkTopWords = "./PPD 2022/Datasets/Covid19 _ Severity _ Pneumonia/top_words_pneumonia_cocluster_"
   nbClusters = 5  
   df.drop(columns="Unnamed: 0",inplace=True)
+  df["mytext_new"] = df['processed_text'].str.lower().str.replace('[^\w\s]','')
+  new_df = df.mytext_new.str.split(expand=True).stack().value_counts().reset_index()
+  new_df.columns = ['Word', 'Frequency'] 
+  expandernb = st.expander("ℹ️ℹ️ - About articles ", expanded=True)
+  with expandernb:
+     col1nb, col2nb, col3nb = st.columns(3)
+     #st.dataframe(df.head(nb))
+     col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
+     col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
+     col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
   expander = st.expander("See all articles :", expanded=True)
   with expander:
     st.dataframe(df.head(nb))
