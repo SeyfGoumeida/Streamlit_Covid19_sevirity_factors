@@ -326,7 +326,8 @@ st.header("")
 st.markdown("## 🧬 Similarities : ")
 expander2 = st.expander("Similarities  :", expanded=False)
 with expander2:
-  image2 = st.image(linkSimilarity)
+  col1, col2 ,col3= st.columns([2,6,2])	
+  image2 = col2.image(linkSimilarity)
 #----------------------------------------------------------------------------------------------------------------------------
 st.markdown("## 📥 Download Datasets and results :")
 def convert_df(df):
