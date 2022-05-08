@@ -314,7 +314,7 @@ expander2.write(cluster)
 st.header("")
 st.markdown("## 📌 NER Named Entity Recognition : ")
 col3,col1,col4, col2 = st.columns([2,6,2,2])
-expander3.expander('Show deseases plot :', expanded=True)
+expander3 = st.expander('Show deseases plot :', expanded=True)
 with expander3:
 	col1.image(linkNER+str(selectedCluster)+".png",use_column_width ="always")
 expander4 = col2.expander('Show deseases table : ')
