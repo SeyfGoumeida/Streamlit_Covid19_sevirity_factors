@@ -111,7 +111,7 @@ if (option=="Covid19 & Severity & Asthma"):
      col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
      col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
     #--------------------------------------------------------------------------------------------------------------------------------
-  expander = st.expander("See all articles :", expanded=True)
+  expander = st.expander("See all articles :", expanded=False)
   with expander:
     st.dataframe(df.head(nb))
 
@@ -146,7 +146,7 @@ elif (option=="Covid19 & Severity & Cancer"):
      col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
      col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
 
-  expander = st.expander("See all articles :", expanded=True)
+  expander = st.expander("See all articles :", expanded=False)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
@@ -180,7 +180,7 @@ elif (option=="Covid19 & Severity & Diabetes"):
      col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
      col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
      col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
-  expander = st.expander("See all articles :", expanded=True)
+  expander = st.expander("See all articles :", expanded=False)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
@@ -214,7 +214,7 @@ elif (option=="Covid19 & Severity & Hypertension"):
      col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
      col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
      col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
-  expander = st.expander("See all articles :", expanded=True)
+  expander = st.expander("See all articles :", expanded=False)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
@@ -248,7 +248,7 @@ elif (option=="Covid19 & Severity & Obesity"):
      col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
      col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
      col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
-  expander = st.expander("See all articles :", expanded=True)
+  expander = st.expander("See all articles :", expanded=False)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
@@ -282,7 +282,7 @@ elif (option=="Covid19 & Severity & Pneumonia"):
      col1nb.metric(label="NUMBER OF ARTICLES", value=len(df))
      col2nb.metric(label="NUMBER OF WORDS", value=new_df.Frequency.sum())
      col3nb.metric(label="NUMBER OF UNIQUE WORDS", value=len(new_df))
-  expander = st.expander("See all articles :", expanded=True)
+  expander = st.expander("See all articles :", expanded=False)
   with expander:
     st.dataframe(df.head(nb))
   #--------------------------------------------------------------------------------------------------------------------------------
