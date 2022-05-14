@@ -1,0 +1,6 @@
+1 - APP Streamlit :
+https://share.streamlit.io/seyfgoumeida/streamlit_covid19_sevirity_factors/main/app.py
+2 - Code APP Streamlit (sur Girhub): 
+https://github.com/SeyfGoumeida/Streamlit_Covid19_sevirity_factors
+3 - Code Source :
+https://github.com/Erifai/NLP_TEXT_MINING_COVID_SEVERITY_FACTORS
